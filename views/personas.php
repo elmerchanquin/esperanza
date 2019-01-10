@@ -1,26 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Clínica Esperanza</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-    <header>
-        <h1>Clínica Esperaza</h1>
-        <nav>
-            <ul>
-                <li><a href="http://localhost/esperanza">Personas</a></li>
-                <li><a href="http://localhost/esperanza/nueva-persona">Nueva Persona</a></li>
-                <li><a href="http://localhost/esperanza/historiales">Historiales</a></li>
-                <li><a href="http://localhost/esperanza/nuevo-historial">Nuevo Historial</a></li>
-             </ul>
-        </nav>
-    </header>
-    <div>
+        <?php 
+            include ('parts/header.php');
+        ?>
         <form action="" method="POST">
             <input type="search" name="" id="">
             <select name="" id="">
