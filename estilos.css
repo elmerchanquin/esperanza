@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+ul, li {
+    display: inline;
+    color: #2A2A2A;
+}
+li {
+    padding: 10px;
+}
+a {
+    color: #2A2A2A;
+    text-decoration: #2A2A2A;
+}
+a:active {
+    color: #1D7E00;
+}
+a:hover {
+    color: #1D7E00;
+}
+header {
+    display: grid;
+    grid-template: 60px / 10% 40% 40% 10%;
+}
+.logo {
+    grid-column: 2/3;
+    display: grid;
+    align-items: center;
+    color: #1D7E00;
+}
+nav {
+    display: grid;
+    justify-items: right;
+    align-items: center;
+    grid-column: 3/4;
+}
+.contenedor-col-50 {
+    display: grid;
+    grid-template: 30px auto / 10% 40% 40% 10%;
+}
+.titulo {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+.formulario-busqueda {
+    grid-column: 3/4;
+    display: grid;
+    justify-items: right;
+    grid-row: 2/3;
+}
+h1 {
+    font-size: 28px;
+}
+.contenedor-completo {
+    display: grid;
+    grid-template: 50px auto / 10% 80% 10%;
+}
+.tabla {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: grid;
+    grid-template: auto / 12% 40% repeat(3/12%);
+}
+.tabla-center {
+    display: grid;
+    justify-content: center;
+}
+.tabla-center button {
+    border: none;
+    border-radius: 2px;
+    background: #1D7E00;
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px 0px;
+}
+tr {
+    border: 1px solid #2A2A2A;
+}
+input, select {
+    border: 1px solid #2A2A2A;
+    padding: 5px;
+    background: #fff;
+    border-radius: 2px;
+}
