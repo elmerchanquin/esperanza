@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #2d2d2d;
+}
+header {
+    padding: 0px 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0px 1px 5px #888888;
+}
+.logo, .logo h1, nav, li, ul {
+    display: inline;
+}
+nav {
+    float: right;
+}
+a {
+    text-decoration: none;
+    color: #2d2d2d;
+}
+a:hover {
+    color: #0a5f02;
+}
+li {
+    margin: 0px 10px;
+}
+.logo h1 {
+    color: #0a5f02;
+}
+.cabecera {
+    padding: 0px 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+.titulo, .titulo h1, .busqueda, .busqueda form {
+    display: inline;
+}
+.titulo h1 {
+    font-size: 24px;
+}
+.busqueda form input, .busqueda form select {
+    padding: 5px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #d2d2d2;
+    border-radius: 2px;
+    margin: 0px;
+}
+.contenedor {
+    padding: 0px 150px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th {
+    height: 60px;
+  }
+  tr:first {
+      height: 60px;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {
+      background-color: #f2f2f2;
+  }
+  button {
+    cursor: pointer;
+    border: none;
+    background: #0a5f02;
+    padding: 10px;
+    border-radius: 2px;
+    color: #fff;
+  }
+  .campo, .campo input, .campo select {
+    width: 100%;
+    margin: 10px 0px;
+  }
+  .campo input, .campo select {
+    padding: 5px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #d2d2d2;
+    border-radius: 2px;
+    margin: 0px;
+  }
+  .campo input[type=radio] {
+    height: 20px;
+    width: 20px;
+  }
+  .campo p {
+      font-size: 12px;
+  }
+  form button {
+      width: 100%;
+  }
