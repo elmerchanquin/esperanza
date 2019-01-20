@@ -23,7 +23,7 @@ class NuevaPersona{
         $sql = "INSERT INTO persona (nombre, telefono, ciudad,
         direccion, direccion2, genero, estadoCivil, escolaridad, nacimiento)
         VALUES ($nombre, $telefono, $ciudad, $direccion, $direccion2, $genero,
-        $estado, $escolaridad, $nacimiento)";
+        $estado, $escolaridad, $nacimiento, $pais2, )";
 
         $mysqli->set_charset("utf8");
         $mysqli->query($sql);
