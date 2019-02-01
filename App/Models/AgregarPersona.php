@@ -1,6 +1,6 @@
 <?php
 class NuevaPersona{
-    public static function AgregarPersona(){
+    public static function AgregarPersona($nombre, $telefono, $pais){
         require 'Conexion.php';
         $nombre = $_POST['nombre'];
         $telefono = $_POST['telefono'];
@@ -29,3 +29,6 @@ class NuevaPersona{
         $mysqli->query($sql);
     }
 }
+    if (isset($_POST['nombre'])) {
+        NuevaPersona::AgregarPersona();
+    }

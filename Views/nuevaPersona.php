@@ -20,6 +20,9 @@
         </div>
         <div class="contenedor">
             <form action="" autocomplete="off" method='POST'>
+            <div class="campo">
+                    <input type="text" placeholder="Identificacción del país" name="identificacon" required>
+                </div>
                 <div class="campo">
                     <input type="text" placeholder="Nombre completo" name="nombre" required>
                 </div>
@@ -39,24 +42,30 @@
                     <input type="text" placeholder="Ciudad de nacimiento" name="ciudad" required>
                 </div>
                 <div class="campo">
+                    <input type="text" placeholder="Dirección de residencia" name="direccion" required>
+                </div>
+                <div class="campo">
                     <input type="text" placeholder="País de residencia (Dejar en blanco si es el de nacimiento)"
                     name='pais2'>
                 </div>
                 <div class="campo">
                     <input type="text" placeholder="Departamento de residencia (Dejar en blanco si es el de nacimiento)"
-                    name="departamento">
+                    name="departamento2">
                 </div>
                 <div class="campo">
                     <input type="text" placeholder="Ciudad de residencia (Dejar en blanco si es el de nacimiento)"
-                    name="ciudad">
+                    name="ciudad2">
                 </div>
                 <div class="campo">
-                    <input type="text" placeholder="Dirección de residencia" name="direccion" required>
+                    <input type="text" placeholder="Dirección de residencia" name="direccion2" required>
                 </div>
                 <div class="campo">
                     <label for="genero">Genero</label>
                     <input type="radio" name="genero" value="1" checked required><span>Hombre</span>
                     <input type="radio" name="genero" value="2" required> <span>Mujer</span>
+                </div>
+                <div class="campo">
+                    <input type="text" placeholder="Ocupación">
                 </div>
                 <div class="campo">
                     <select name="estadoCivil" id="">
@@ -70,16 +79,22 @@
                     <input type="text" name="ocupacion" placeholder="Ocupación" required>
                 </div>
                 <div class="campo">
-                    <select name="escolaridad" id="" required>
-                        <option disabled selected>Selecionar nivel de estudios</option>
-                        <option value="1">Estudiante</option>
-                        <option value="2">Empleado</option>
-                        <option value="3">Desempleado</option>
-                        <option value="4">Independiente</option>
-                    </select>
+                    <input type="date" placeholder="Fecha de Nacimiento" name="nacimiento" max="<?php echo date('d')."/".date('m')."/".date('Y');?>" required>
                 </div>
                 <div class="campo">
-                    <input type="date" placeholder="Fecha de Nacimiento" name="nacimiento" max="<?php echo date('d')."/".date('m')."/".date('Y');?>" required>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Antecedentes Médicos"></textarea>
+                </div>
+                <div class="campo">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Antecedentes Quirurgicos"></textarea>
+                </div>
+                <div class="campo">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Antecedentes Alergicos"></textarea>
+                </div>
+                <div class="campo">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Antecedentes Traumaticos"></textarea>
+                </div>
+                <div class="campo">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Antecedentes Gineco-obstreticos"></textarea>
                 </div>
                 <div class="campo">
                     <button name="" class="form-button">Guardar</button>

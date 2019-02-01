@@ -53,7 +53,7 @@
                 </th>
             </tr>
             <?php
-            Persona::tablaPersonas();
+            TablaPersona::tablaPersonas();
             ?>
         </table>
     </div>

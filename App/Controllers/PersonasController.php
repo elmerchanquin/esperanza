@@ -2,7 +2,7 @@
 
 Class PersonasController {
     public function tPersonas(){
-        include '../App/Models/Persona.php';
+        include '../App/Models/TablaPersona.php';
         include '../views/personas.php';
     }
 }

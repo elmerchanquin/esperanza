@@ -6,7 +6,7 @@ if ($myurl == '/esperanza/') {
 } elseif ($myurl == '/esperanza/nueva-persona/') {
     include '../App/Controllers/PersonaController.php';
 } elseif ($myurl == '/esperanza/historial/') {
-    include '../App/Controllers/HistorialesController.php';
+    include '../App/Controllers/HistorialCreadoController.php';
 } elseif ($myurl == '/esperanza/nuevo-historial/') {
     include '../App/Controllers/HistorialController.php';
 } else {

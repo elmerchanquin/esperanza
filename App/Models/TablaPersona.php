@@ -1,16 +1,17 @@
 <?php
-class Historial{
-    public static function tablaHistoriales () {
+class TablaPersona{
+    public static function tablaPersonas () {
         require 'Conexion.php';
-            $consulta = 'SELECT * FROM historial';
+            $consulta = 'SELECT * FROM persona';
             $mysqli->set_charset("utf8");
             $resultado = $mysqli->query($consulta);
         while ($fila = $resultado->fetch_assoc()) {
             echo  '
                 <tr>
                     <td>' . $fila['codigo'] . '</td>
-                    <td>' . $fila['id-persona'] . '</td>
-                    <td>' . $fila['fecha'] . '</td>
+                    <td>' . $fila['nombre'] . '</td>
+                    <td>' . $fila['telefono'] . '</td>
+                    <td>' . $fila['identificacion'] . '</td>
                     <td><button class="">Nuevo Historial</button></td>
                     <td><button class="">Ver todo</button></td>
                 </tr>';

@@ -2,7 +2,7 @@
 
 Class PersonaController {
     public static function mPersona(){
-        include '../App/Models/NuevaPersona.php';
+        include '../App/Models/AgregarPersona.php';
         include '../views/nuevaPersona.php';
     }
 }
