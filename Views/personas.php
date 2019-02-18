@@ -53,7 +53,24 @@
                 </th>
             </tr>
             <?php
-            TablaPersona::tablaPersonas();
+            function tablaPersonas () {
+                    require 'Conexion.php';
+                        $consulta = 'SELECT * FROM persona';
+                        $mysqli->set_charset("utf8");
+                        $resultado = $mysqli->query($consulta);
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo  '
+                            <tr>
+                                <td>' . $fila['codigo'] . '</td>
+                                <td>' . $fila['nombre'] . '</td>
+                                <td>' . $fila['telefono'] . '</td>
+                                <td>' . $fila['identificacion'] . '</td>
+                                <td><form method="POST" action="http://127.0.0.1/esperanza/nuevo-historial/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Nuevo Historial</button></a></form></td>
+                                <td><button class="">Ver todo</button></td>
+                            </tr>';
+                    }
+                }
+            tablaPersonas();
             ?>
         </table>
     </div>

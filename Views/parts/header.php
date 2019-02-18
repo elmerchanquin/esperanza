@@ -4,9 +4,8 @@
         </div>
         <nav>
             <ul>
-                <li><a href="http://localhost/esperanza/">Personas</a></li>
-                <li><a href="http://localhost/esperanza/nueva-persona/">Nueva Persona</a></li>
-                <li><a href="http://localhost/esperanza/nuevo-historial/">Nuevo Historial</a></li>
+                <li><a href="http://127.0.0.1/esperanza/">Personas</a></li>
+                <li><a href="http://127.0.0.1/esperanza/nueva-persona/">Nueva Persona</a></li>
             </ul>
         </nav>
     </header>

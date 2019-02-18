@@ -18,11 +18,11 @@ header {
 nav {
     float: right;
 }
-a {
+nav a {
     text-decoration: none;
     color: #2d2d2d;
 }
-a:hover {
+nav a:hover {
     color: #0a5f02;
 }
 li {
@@ -95,7 +95,7 @@ table {
   textarea {
     width: 100%;
     padding: 5px;
-    height: 250px;
+    height: 60px;
     background: #fff;
     border: 1px solid #d2d2d2;
     border-radius: 2px;
@@ -131,4 +131,8 @@ table {
       height: 50px;
       margin: 5px;
       display: inline-block;
+  }
+  a {
+    color: #FFF;
+    text-decoration: none;
   }

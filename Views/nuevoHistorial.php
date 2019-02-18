@@ -18,8 +18,17 @@
     <script src="../main.js"></script>
 </head>
 <body>
+<canvas id="canvas_1" width="594" height="529"></canvas>
     <?php
     include 'parts/header.php';
+    include 'Conexion.php';
+    if (isset($_POST['codigo'])){
+        $codigo = $_POST['codigo'];
+    }
+    $consulta = "SELECT nombre FROM persona WHERE codigo=$codigo";
+    $mysqli->set_charset("utf8");
+    $query = mysqli_query($mysqli, $consulta);
+    $resultado = mysqli_fetch_array($query);
     ?>
         <div class="cabecera">
             <div class="titulo">
@@ -31,6 +40,9 @@
         <div class="contenedor">
             <form action="http://localhost/esperanza/historial/" method="POST" autocomplete="off">
                 <div class="campo">
+                    <input type="text" value="<?php print($resultado["nombre"])?>" name="nada" placeholder="Nombre del paciente" disabled>
+                </div>
+                <div class="campo">
                     <input type="text" placeholder="Motivo de la consulta" name="motivo" required>
                 </div>
                 <div class="Historia">
@@ -41,7 +53,7 @@
                 </div>
                 <div class="contenedor-examen">
                 <div class="contenedor-imagen">
-                    <canvas id="canvas_1" width="594" height="529"></canvas>
+
                 </div>
                 <div class="contenedor-comentarios">
                     <?php
