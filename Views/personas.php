@@ -66,7 +66,7 @@
                                 <td>' . $fila['telefono'] . '</td>
                                 <td>' . $fila['identificacion'] . '</td>
                                 <td><form method="POST" action="http://127.0.0.1/esperanza/nuevo-historial/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Nuevo Historial</button></a></form></td>
-                                <td><button class="">Ver todo</button></td>
+                                <td><form method="POST" action="http://127.0.0.1/esperanza/ver-todo/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Ver todo</button></a></form></td>
                             </tr>';
                     }
                 }

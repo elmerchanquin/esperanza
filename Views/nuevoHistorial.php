@@ -18,7 +18,6 @@
     <script src="../main.js"></script>
 </head>
 <body>
-<canvas id="canvas_1" width="594" height="529"></canvas>
     <?php
     include 'parts/header.php';
     include 'Conexion.php';
@@ -53,7 +52,7 @@
                 </div>
                 <div class="contenedor-examen">
                 <div class="contenedor-imagen">
-
+                    <canvas id="canvas_1" width="300" height="268"></canvas>
                 </div>
                 <div class="contenedor-comentarios">
                     <?php

@@ -127,23 +127,23 @@
                         $atGineco = $_POST['at-gineco'];
 
 
-                        $consulta = "INSERT INTO persona (nombre, identifcacion, telefono, direccion,
-                        pais, departamento, ciudad, genero, escolaridad, nacimiento, estado-civil,
-                        ocupacion, pais2, departamento2, ciudad2, antecedentes-medicos,
-                        antecedentes-traumaticos, antecedentes-quirugico, antecedentes-alergicos,
-                        antecedentes-gineco-obstreticos)
-                        VALUES ($nombre, $identificacion, $telefono, $direccion, $pais, $departamento,
-                        $ciudad, $genero, $escolaridad, $nacimiento, $estado, $ocupacion,
-                        $pais2, $departamento2, $ciudad2, $atMedicos, $atTraumaticos, $atQuirurgicos, $atAlergicos, $atGineco)";
+                        $sql = "INSERT INTO `persona` (`codigo`, `nombre`, `identificacion`, `telefono`, `direccion`, `pais`,
+                        `departamento`, `ciudad`, `genero`, `escolaridad`, `nacimiento`, `estado_civil`, `ocupacion`, `updated_at`,
+                         `paisR`, `departamentoR`, `ciudadR`, `antecedentes_medicos`, `antecedentes_traumaticos`, `antecedentes_quirugico`,
+                          `antecedentes_alergicos`, `antecedentes_gineco_obstetricos`) VALUES (NULL, '$nombre', '$identificacion',
+                          '$telefono', '$direccion', '$pais', '$departamento', '$ciudad', '$genero', '$escolaridad', '$nacimiento', '$estado',
+                         '$ocupacion', CURRENT_TIMESTAMP, '$pais2', '$departamento2', '$ciudad2', '$atMedicos', '$atTraumaticos', '$atQuirurgicos', '$atAlergicos', '$atGineco');";
 
-                        if (mysqli_query($mysqli, $consulta)) {
-                            print('Se han insertado los datos');
+
+                        $mysqli->set_charset("utf8");
+                        if (mysqli_query($mysqli, $sql)) {
+                            echo "New record created successfully";
+                        } else {
+                            echo "Error: " . $sql . "<br>" . mysqli_error($mysqli);
                         }
-                            else {
-                                print('No paso nada');
-                            }
-                } else {
+                        mysqli_close($mysqli);
                 }
+
             ?>
         </div>
 </body>
