@@ -21,4 +21,3 @@ document.addEventListener("DOMContentLoaded", iniciar, false);
                 ctx.arc(x,y,5,0,2*Math.PI);
                 ctx.stroke();
             }
-

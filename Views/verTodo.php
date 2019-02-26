@@ -28,7 +28,71 @@
     $mysqli->set_charset("utf8");
     $query = mysqli_query($mysqli, $consulta);
     $resultado = mysqli_fetch_array($query);
+
+        $myArray = explode('-', $resultado["nacimiento"]);
     ?>
+    <?php
+    function edad($anoNacimiento, $mesNacimiento, $diaN){
+
+    $anoNacimiento;
+    $anoActual = 2019;
+    $edad = $anoActual - $anoNacimiento;
+    /* $contenedor = array();
+    $a = 0;
+    for($i=1900;$i<=2040;$i+=4)
+    {
+        $contenedor[$a] = $i;
+        $a++;
+    }
+    for($i=$anoNacimiento;$i<=$anoActual;$i++)
+    {
+        $contenedor[$a] = $i;
+        $a++;
+    }
+    function cuenta_veces_valor($array, $valor) {
+        $contadores = array_count_values($array);
+        return $contadores[$valor];
+    }
+    $anoB = 0;
+    $anoN = 0;
+    for ($z=$anoNacimiento ; $z <= $anoActual ; $z++) {
+        if (cuenta_veces_valor($contenedor, $z) == 2) {
+            $anoB++;
+        } else {
+            $anoN++;
+        }
+
+    }
+
+    $diasB = $anoB * 366;
+    $diasN = $anoN * 365; */
+
+    /* MESES */
+
+    $mesNacimiento;
+    $mesActual = 2;
+
+    $meses =  $mesActual - $mesNacimiento;
+    if ($meses < 0) {
+        print($edad-1);
+    } elseif ($meses > 0) {
+        print($edad);
+    } elseif ($meses == 0) {
+        $diaN;
+        $diaA = 22;
+        $dias =  $diaA - $diaN;
+        if ($dias == 0) {
+            print('Felíz Cumpleaños, ya tienes ' . $edad);
+        } elseif ($dias < 0) {
+            print($edad-1);
+        } elseif ($dias > 0) {
+            print($edad);
+        }
+    }
+    }
+
+
+?>
         <div class="cabecera">
             <div class="titulo">
                 <h1>
@@ -140,7 +204,8 @@
                     <input type="text" value="<?php print($resultado["ocupacion"])?>" name="ocupacion" disabled>
                 </div>
                 <div class="campo">
-                    <input type="text" value="<?php print($resultado["nacimiento"])?>" name="fecha" required disabled>
+                    <label for="edad">Edad:</label>
+                    <input type="text" value="<?php edad($myArray['0'],$myArray['1'],$myArray['2']);print(" | ". $resultado['nacimiento']);?>" name="edad" required disabled>
                 </div>
                 <div class="campo">
                     <label for="at_medicos">Antecedentes Médico</label>
@@ -162,10 +227,10 @@
                     <label for="at_gineco_obstreticos">Antecedentes Gineco-obstetricos</label>
                     <textarea name="at_gineco_obstreticos" id="" cols="30" rows="10" required disabled><?php print($resultado["antecedentes_gineco_obstetricos"])?></textarea>
                 </div>
-                <div class="campo">
-                    <button name="" class="form-button">Guardar</button>
-                </div>
             </form>
+            <div class="campo">
+                    <button name="" class="form-button">Editar</button>
+                </div>
         </div>
   </body>
 </html>

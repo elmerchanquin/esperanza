@@ -136,7 +136,7 @@ table {
     color: #FFF;
     text-decoration: none;
   }
-  input:disabled, textarea>:disabled {
+  input:disabled, textarea:disabled {
     border: none;
     background: #f2f2f2;
   }
