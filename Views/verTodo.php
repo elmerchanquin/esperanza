@@ -105,19 +105,24 @@
         <div class="cabecera">
             <h1>Persona</h1>
         </div>
-        <div class="contenedor">
+        <div class="contenedor dividido">
             <div class="contenedor_datos_persona">
-                <div>
+                <div class="titulo_caja">
                     <h2>
-                        <?php print($resultado["nombre"])?>
+                        Datos Personales
                     </h2>
                 </div>
-                <div>
+                <div class="caja_datos_persona_nombre caja_sb">
+                    <h3>
+                        <?php print($resultado["nombre"])?>
+                    </h3>
+                </div>
+                <div class="caja_sb">
                     <p>
                         Código N° <?php print($resultado["codigo"])?>
                     </p>
                 </div>
-                <div>
+                <div class="caja_sb">
                     <span>
                         Edad: <?php edad($myArray['0'],$myArray['1'],$myArray['2']);?>,
                     </span>
@@ -130,12 +135,12 @@
                         };?>
                     </span>
                 </div>
-                <div>
+                <div class="caja_sb">
                     <p>
                         DPI: <?php print($resultado["identificacion"])?>
                     </p>
                 </div>
-                <div>
+                <div class="caja_sb">
                         <span>
                             Teléfono: <?php print($resultado["telefono"])?>
                         </span>
@@ -143,119 +148,126 @@
                             Correo: <?php print('antoniobanderas@antoniobanderas.com')?>
                         </span>
                 </div>
-                <div>
+                <div class="caja_sb">
                     <p>
                         Dirección: <?php print($resultado["direccion"])?>
                     </p>
                 </div>
-                <div>
-                    <p>
-                        Ciudad: <?php print($resultado["ciudad"])?>
-                    </p>
-                    <p>
-                        Departamento: <?php print($resultado["departamento"])?>
-                    </p>
-                    <p>
-                        País: <?php print($resultado["pais"])?>
-                    </p>
-                </div>
-                <div>
-                    <p>
-                        Escolaridad: <?php
-                        if ($resultado["escolaridad"] == 1 ) {
-                            print('Ninguno');
-                        } elseif ($resultado["escolaridad"] == 2 ) {
-                            print('Primaria');
-                        } elseif ($resultado["escolaridad"] == 3 ) {
-                            print('Básicos');
-                        } elseif ($resultado["escolaridad"] == 4 ) {
-                            print('Diversificado');
-                        } elseif ($resultado["escolaridad"] == 5 ) {
-                            print('Universidad');
-                        } elseif ($resultado["escolaridad"] == 6 ) {
-                            print('Universidad Superior');
-                        };?>
-                    </p>
-                    <p>
-                        Estado Cívil: <?php
-                        if ($resultado["estado_civil"] == 1 ) {
-                            if ($resultado['genero'] == 'f') {
-                                print('Soltera');
-                            } else {
-                                print('Soltero');
-                            }
-                        } elseif ($resultado["estado_civil"] == 2) {
-                            if ($resultado['genero'] == 'f') {
-                                print('Casada');
-                            } else {
-                                print('Casado');
-                            }
-                        } elseif ($resultado["estado_civil"] == 3) {
-                            if ($resultado['genero'] == 'f') {
-                                print('Divorciada');
-                            } else {
-                                print('Divorciado');
-                            }
-                        };?>
-                    </p>
-                    <p>
-                        Ocupación: <?php print($resultado["ocupacion"])?>
-                    </p>
+                <div class="dividido_mitad">
+                    <div class="caja_sb">
+                        <p>
+                            Ciudad: <?php print($resultado["ciudad"])?>
+                        </p>
+                        <p>
+                            Departamento: <?php print($resultado["departamento"])?>
+                        </p>
+                        <p>
+                            País: <?php print($resultado["pais"])?>
+                        </p>
+                    </div>
+                    <div class="caja_sb">
+                        <p>
+                            Escolaridad: <?php
+                            if ($resultado["escolaridad"] == 1 ) {
+                                print('Ninguno');
+                            } elseif ($resultado["escolaridad"] == 2 ) {
+                                print('Primaria');
+                            } elseif ($resultado["escolaridad"] == 3 ) {
+                                print('Básicos');
+                            } elseif ($resultado["escolaridad"] == 4 ) {
+                                print('Diversificado');
+                            } elseif ($resultado["escolaridad"] == 5 ) {
+                                print('Universidad');
+                            } elseif ($resultado["escolaridad"] == 6 ) {
+                                print('Universidad Superior');
+                            };?>
+                        </p>
+                        <p>
+                            Estado Cívil: <?php
+                            if ($resultado["estado_civil"] == 1 ) {
+                                if ($resultado['genero'] == 'f') {
+                                    print('Soltera');
+                                } else {
+                                    print('Soltero');
+                                }
+                            } elseif ($resultado["estado_civil"] == 2) {
+                                if ($resultado['genero'] == 'f') {
+                                    print('Casada');
+                                } else {
+                                    print('Casado');
+                                }
+                            } elseif ($resultado["estado_civil"] == 3) {
+                                if ($resultado['genero'] == 'f') {
+                                    print('Divorciada');
+                                } else {
+                                    print('Divorciado');
+                                }
+                            };?>
+                        </p>
+                        <p>
+                            Ocupación: <?php print($resultado["ocupacion"])?>
+                        </p>
+                    </div>
                 </div>
                 <div>
                     <div>
+                        <div class="caja_sb">
+                            <h3>
+                                Antecendentes
+                            </h3>
+                        </div>
                         <!-- Menú de tablas -->
-                        <div>
-                            Antecedentes Médicos
+                        <div class="caja_menu active">
+                            Médicos
                         </div>
-                        <div>
-                            Antecedentes Traumaticos
+                        <div class="caja_menu">
+                            Traumaticos
                         </div>
-                        <div>
-                            Antecedentes Quirurgicos
+                        <div class="caja_menu">
+                            Quirurgicos
                         </div>
-                        <div>
-                            Antecedentes Alergicos
+                        <div class="caja_menu">
+                            Alergicos
                         </div>
-                        <div>
-                            Antecendes Gineco-obstetricos
+                        <div class="caja_menu">
+                            Gineco-obstetricos
                         </div>
                     </div>
-                    <div>
+                    <div class="caja_tablas">
                         <!-- Tablas -->
-                        <div>
+                        <div class="caja_blanca activate">
                             <?php print($resultado["antecedentes_medicos"])?>
                         </div>
-                        <div>
+                        <div class="caja_blanca deactivate">
                             <?php print($resultado["antecedentes_traumaticos"])?>
                         </div>
-                        <div>
+                        <div class="caja_blanca deactivate">
                             <?php print($resultado["antecedentes_quirugico"])?>
                         </div>
-                        <div>
+                        <div class="caja_blanca deactivate">
                             <?php print($resultado["antecedentes_alergicos"])?>
                         </div>
-                        <div>
+                        <div class="caja_blanca deactivate">
                             <?php print($resultado["antecedentes_gineco_obstetricos"])?>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="contenedor_registros">
-                <div class="contenedor_historial">
+                <div>
                     <h2>
-                        Historial Médico
+                        Registros
                     </h2>
-                    <div>
+                </div>
+                <div class="contenedor_historial">
+                        <h3>
+                            Historial Médico
+                        </h3>
+                    <div class="caja caja_historial">
                         <div>
-                            <div>
-                                <span>
-                                    <?php print($resultado2["fecha"])?>
-                                </span>
-                                <span>
-                                    Dra. Erika Pérez
-                                </span>
-                            </div>
+                            <span>
+                                <?php print($resultado2["fecha"])?>
+                            </span>
                         </div>
                         <div>
                             <h3>
@@ -266,7 +278,7 @@
                             </p>
                         </div>
                     </div>
-                    <div>
+                    <div class="caja">
                         <b>
                             Aún no se ha creado un historial, crealo ahora.
                         </b>
@@ -279,7 +291,7 @@
                     <h3>
                         Consultas
                     </h3>
-                    <div>
+                    <div class="caja">
                         <b>
                             Aún no se ha creado ninguna consulta, crea la primera consulta.
                         </b>

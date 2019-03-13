@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Clínica Esperanza</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="estilos.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../estilos.css"/>
 </head>
 <body>
     <?php
@@ -54,6 +54,9 @@
             </tr>
             <?php
             function tablaPersonas () {
+                    $busqueda = $_POST['busqueda'];
+
+
                     require 'Conexion.php';
                         $consulta = 'SELECT * FROM persona';
                         $mysqli->set_charset("utf8");

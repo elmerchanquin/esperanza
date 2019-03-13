@@ -53,8 +53,12 @@
                     <input type="text" placeholder="Motivo" name="motivo" required>
                 </div>
                 <div class="Historia">
-                    <label for="nombre">Historia:</label>
-                    <textarea name="historia" id="" cols="30" rows="10" placeholder="Historia" required></textarea>
+                    <label for="nombre">Datos objetivos:</label>
+                    <textarea name="objetivos" id="" cols="30" rows="10" placeholder="Datos que el medico puede comprobar" required></textarea>
+                </div>
+                <div class="Historia">
+                    <label for="nombre">Datos subjetivos:</label>
+                    <textarea name="subjetivos" id="" cols="30" rows="10" placeholder="Datos que el paciente indica" required></textarea>
                 </div>
                 <div class="campo">
                     <label for="fecha">Fecha: (MES/ DÍA/ AÑO)</label>
