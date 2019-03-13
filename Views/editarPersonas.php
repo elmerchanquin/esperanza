@@ -14,12 +14,12 @@
         <div class="cabecera">
             <div class="titulo">
                 <h1>
-                    Nueva Persona
+                    Editar Persona
                 </h1>
             </div>
         </div>
         <div class="contenedor">
-            <form action="http://127.0.0.1/esperanza/nueva-persona/" autocomplete="off" method='POST'>
+            <form action="http://127.0.0.1/esperanza/editar-persona/" autocomplete="off" method='POST'>
             <div class="campo">
                     <input type="text" placeholder="Identificacción del país" name="identificacion" required>
                 </div>

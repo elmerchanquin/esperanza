@@ -17,6 +17,8 @@ if (preg_match("/nuevo-historia/", $myurl)) {
     include '../Views/consulta.php';
 } elseif ($myurl == '/esperanza/examen-fisico/') {
     include '../Views/examenFisico.php';
+} elseif ($myurl == '/esperanza/registrado/') {
+    include '../Views/registrado.php';
 } else {
     echo 'Error 404 no se ha encontrado nada en esta ruta. ';
     echo '<a href="http://127.0.0.1/esperanza/">Regresar</a>';

@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang>
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -18,28 +18,23 @@
     <script src="../main.js"></script>
 </head>
 <body>
-<?php
+    <?php
     include 'parts/header.php';
     include 'Conexion.php';
-    if (isset($_POST['codigo'])){
-        $codigo = $_POST['codigo'];
-    }
-    $consulta = "SELECT * FROM persona WHERE codigo=$codigo";
+    $consulta = "SELECT * FROM persona ORDER BY codigo DESC LIMIT 1;";
     $mysqli->set_charset("utf8");
     $query = mysqli_query($mysqli, $consulta);
     $resultado = mysqli_fetch_array($query);
 
+    $cod = $resultado['codigo'];
+
+    $consulta2 = "SELECT * FROM historial WHERE id_persona=$cod;";
+    $mysqli->set_charset("utf8");
+    $query2 = mysqli_query($mysqli, $consulta2);
+    $resultado2 = mysqli_fetch_array($query2);
+
         $myArray = explode('-', $resultado["nacimiento"]);
-
-        $cod = $resultado['codigo'];
-
-        $consulta2 = "SELECT * FROM historial WHERE id_persona=$cod;";
-        $mysqli->set_charset("utf8");
-        $query2 = mysqli_query($mysqli, $consulta2);
-        $resultado2 = mysqli_fetch_array($query2);
-
-            $myArray = explode('-', $resultado["nacimiento"]);
-        ?>
+    ?>
     <?php
     function edad($anoNacimiento, $mesNacimiento, $diaN){
 
