@@ -18,12 +18,17 @@
             </h1>
         </div>
         <div class="busqueda">
-            <form action="http://127.0.0.1/esperanza/buscar-persona/" method="POST">
-                <input type="search" name="" placeholder="Buscar..." required>
-                    <select name="" id="">
-                        <option value="nombre">Nombre</option>
-                        <option value="codigo">Código</option>
-                        <option value="identificacion">DPI</option>
+            <form action="http://127.0.0.1/esperanza/" method="POST">
+                <input type="search" name="busqueda" placeholder="Buscar..." value="<?php if(isset($_POST['busqueda'])) { print($_POST['busqueda']);}?>" required>
+                    <select name="metodo" id="">
+                        <?php if($_POST['metodo'] == 'codigo') {
+                                print($_POST['<option value="codigo">Código</option>
+                                <option value="nombre">Nombre</option>']);
+                            } else {
+                                print($_POST['<option value="nombre">Nombre</option>
+                                <option value="codigo">Código</option>']);
+                            }
+                            ?>
                     </select>
                 <input type="submit" value="Buscar">
             </form>
@@ -70,7 +75,36 @@
                             </tr>';
                     }
                 }
-            tablaPersonas();
+
+            function buscarPersonas () {
+                require 'Conexion.php';
+                $consulta = $_POST['busqueda'];
+                $metodo = $_POST['metodo'];
+                require 'Conexion.php';
+                        if ($metodo == 'nombre') {
+                            $consulta = 'SELECT * FROM persona WHERE nombre REGEXP "'.$consulta.'"';
+                        } else {
+                            $consulta = 'SELECT * FROM persona WHERE codigo REGEXP "'.$consulta.'"';
+                        }
+                        $mysqli->set_charset("utf8");
+                        $resultado = $mysqli->query($consulta);
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo  '
+                            <tr>
+                                <td>' . $fila['codigo'] . '</td>
+                                <td>' . $fila['nombre'] . '</td>
+                                <td>' . $fila['telefono'] . '</td>
+                                <td>' . $fila['identificacion'] . '</td>
+                                <td><form method="POST" action="http://127.0.0.1/esperanza/consulta/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Consulta</button></a></form></td>
+                                <td><form method="POST" action="http://127.0.0.1/esperanza/ver-todo/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Ver todo</button></a></form></td>
+                            </tr>';
+                }
+            }
+            if (isset($_POST['busqueda'])) {
+                buscarPersonas();
+            } else {
+                tablaPersonas();
+            }
             ?>
         </table>
     </div>

@@ -112,9 +112,6 @@
                         $departamento = $_POST['departamento'];
                         $ciudad = $_POST['ciudad'];
                         $direccion = $_POST['direccion'];
-                        $pais2 = $_POST['pais2'];
-                        $departamento2 = $_POST['departamento2'];
-                        $ciudad2 = $_POST['ciudad2'];
                         $genero = $_POST['genero'];
                         $estado = $_POST['estadoCivil'];
                         $ocupacion = $_POST['ocupacion'];
@@ -129,10 +126,10 @@
 
                         $sql = "INSERT INTO `persona` (`codigo`, `nombre`, `identificacion`, `telefono`, `direccion`, `pais`,
                         `departamento`, `ciudad`, `genero`, `escolaridad`, `nacimiento`, `estado_civil`, `ocupacion`, `updated_at`,
-                         `paisR`, `departamentoR`, `ciudadR`, `antecedentes_medicos`, `antecedentes_traumaticos`, `antecedentes_quirugico`,
-                          `antecedentes_alergicos`, `antecedentes_gineco_obstetricos`) VALUES (NULL, '$nombre', '$identificacion',
+                        `antecedentes_medicos`, `antecedentes_traumaticos`, `antecedentes_quirugico`,
+                        `antecedentes_alergicos`, `antecedentes_gineco_obstetricos`) VALUES (NULL, '$nombre', '$identificacion',
                           '$telefono', '$direccion', '$pais', '$departamento', '$ciudad', '$genero', '$escolaridad', '$nacimiento', '$estado',
-                         '$ocupacion', CURRENT_TIMESTAMP, '$pais2', '$departamento2', '$ciudad2', '$atMedicos', '$atTraumaticos', '$atQuirurgicos', '$atAlergicos', '$atGineco');";
+                         '$ocupacion', CURRENT_TIMESTAMP, '$atMedicos', '$atTraumaticos', '$atQuirurgicos', '$atAlergicos', '$atGineco');";
 
 
                         $mysqli->set_charset("utf8");

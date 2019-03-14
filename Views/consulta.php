@@ -48,10 +48,6 @@
                     <label for="nombre">Nombre:</label>
                     <input type="text" value="<?php print($resultado["nombre"])?>" disabled>
                 </div>
-                <div class="campo">
-                    <label for="motivo">Motivo:</label>
-                    <input type="text" placeholder="Motivo" name="motivo" required>
-                </div>
                 <div class="Historia">
                     <label for="nombre">Datos objetivos:</label>
                     <textarea name="objetivos" id="" cols="30" rows="10" placeholder="Datos que el medico puede comprobar" required></textarea>
@@ -60,10 +56,23 @@
                     <label for="nombre">Datos subjetivos:</label>
                     <textarea name="subjetivos" id="" cols="30" rows="10" placeholder="Datos que el paciente indica" required></textarea>
                 </div>
+                <div class="Historia">
+                    <label for="nombre">Nuevos datos:</label>
+                    <textarea name="nuevo" id="" cols="30" rows="10" placeholder="Datos que el medico puede comprobar" required></textarea>
+                </div>
+                <div class="Historia">
+                    <label for="nombre">Diagnostico:</label>
+                    <textarea name="diagnostico" id="" cols="30" rows="10" placeholder="Datos que el medico puede comprobar" required></textarea>
+                </div>
+                <div class="Historia">
+                    <label for="nombre">Tratamiento:</label>
+                    <textarea name="tratamiento" id="" cols="30" rows="10" placeholder="Datos que el medico puede comprobar" required></textarea>
+                </div>
                 <div class="campo">
                     <label for="fecha">Fecha: (MES/ DÍA/ AÑO)</label>
                     <input type="date" id="fechaActual" value="" placeholder="Fecha" name="fecha" required>
                 </div>
+                <!-- PROXIMA CITA -->
                 <div class="campo">
                     <button type="submit" class="form-button">Continuar</button>
                 </div>

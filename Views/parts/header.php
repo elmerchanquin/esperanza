@@ -1,6 +1,8 @@
 <header>
         <div class="logo">
-                <h1>Clínica Esperanza</h1>
+                <a href="http://127.0.0.1/esperanza/">
+                    <img src="../assets/img/logo.jpg" alt="" height="50px">
+                </a>
         </div>
         <nav>
             <ul>
