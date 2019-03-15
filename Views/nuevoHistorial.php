@@ -27,7 +27,7 @@
     if (isset($_POST['codigo'])){
         $codigo = $_POST['codigo'];
     }
-    $consulta = "SELECT nombre, codigo FROM persona ORDER BY codigo DESC LIMIT 1;";
+    $consulta = "SELECT nombre, codigo FROM persona WHERE codigo=$codigo";
     $mysqli->set_charset("utf8");
     $query = mysqli_query($mysqli, $consulta);
     $resultado = mysqli_fetch_array($query);

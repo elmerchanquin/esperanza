@@ -38,7 +38,12 @@
         $query2 = mysqli_query($mysqli, $consulta2);
         $resultado2 = mysqli_fetch_array($query2);
 
-            $myArray = explode('-', $resultado["nacimiento"]);
+
+            $consulta3 = "SELECT * FROM consultas WHERE id_persona=$cod;";
+            $mysqli->set_charset("utf8");
+            $query3 = mysqli_query($mysqli, $consulta3);
+            $resultado3 = $mysqli->query($consulta3);
+
         ?>
     <?php
     function edad($anoNacimiento, $mesNacimiento, $diaN){
@@ -263,43 +268,64 @@
                         <h3>
                             Historial Médico
                         </h3>
-                    <div class="caja caja_historial">
+                        <?php
+                        if ($resultado2) {
+                            print(
+                                "<div class='caja caja_historial'>
+                                    <div>
+                                        <span>
+                                            ".$resultado2['fecha']."
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <h3>
+                                            ".$resultado2['motivo']."
+                                        </h3>
+                                        <p>
+                                            ".$resultado2['historia']."
+                                        </p>
+                                    </div>
+                                </div>"
+                            );
+                        } else {
+                            print('<b>
+                                Aún no se ha creado un historial, crealo ahora.
+                                </b>');
+                        }
+                        ?>
                         <div>
-                            <span>
-                                <?php print($resultado2["fecha"])?>
-                            </span>
+                            <form method="POST" action="http://127.0.0.1/esperanza/nuevo-historial/"><input type="hidden" name="codigo" value="<?php print($_POST['codigo']) ?>"><button type="submit">NUEVO HISTORIAL</button></a></form>
                         </div>
-                        <div>
-                            <h3>
-                                <?php print($resultado2["motivo"])?>
-                            </h3>
-                            <p>
-                                <?php print($resultado2["historia"])?>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="caja">
-                        <b>
-                            Aún no se ha creado un historial, crealo ahora.
-                        </b>
-                        <button>
-                            CREAR HISTORIAL
-                        </button>
-                    </div>
                 </div>
                 <div class="contenedor_consultas">
                     <h3>
                         Consultas
                     </h3>
-                    <div class="caja">
-                        <b>
-                            Aún no se ha creado ninguna consulta, crea la primera consulta.
-                        </b>
-                        <button>
-                            NUEVA CONSULTA
-                        </button>
+                   <?php
+                   if (mysqli_num_rows($resultado3)) {
+                    while ($fila = $resultado3->fetch_assoc()) {
+                        print("<div class='caja caja_historial'>
+                        <div>
+                            <span>
+                                ".$fila['fecha']."
+                            </span>
+                        </div>
+                        <div>
+                            <p>
+                                ".$fila['diagnostico']."
+                            </p>
+                        </div>
+                    </div>");
+                   }
+                   } else {
+                       print('<b>
+                       Aún no se ha creado ninguna consulta, crea la primera ahora.
+                        </b>');
+                   }
+                   ?>
+                    <div>
+                            <form method="POST" action="http://127.0.0.1/esperanza/consulta/"><input type="hidden" name="codigo" value="<?php print($_POST['codigo']) ?>"><button type="submit">NUEVA CONSULTA</button></a></form>
                     </div>
-                </div>
             </div>
         </div>
   </body>

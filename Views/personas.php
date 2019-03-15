@@ -19,7 +19,7 @@
         </div>
         <div class="busqueda">
             <form action="http://127.0.0.1/esperanza/" method="POST">
-                <input type="search" name="busqueda" placeholder="Buscar..." value="<?php if(isset($_POST['busqueda'])) { print($_POST['busqueda']);}?>" required>
+                <input type="search" name="busqueda" autocomplete="off" placeholder="Buscar..." value="<?php if(isset($_POST['busqueda'])) { print($_POST['busqueda']);}?>" required>
                     <select name="metodo" id="">
                         <?php if($_POST['metodo'] == 'codigo') {
                                 print($_POST['<option value="codigo">Código</option>
@@ -37,28 +37,30 @@
     <div class="contenedor">
     <div class="tabla">
         <table>
-            <tr>
-                <th class="">
+            <?php
+            function tablaPersonas () {
+                    print('
+                    <tr>
+                <th>
                     Código
                 </th>
-                <th class="">
+                <th>
                     Nombre
                 </th>
-                <th class="">
+                <th>
                     Teléfono
                 </th>
-                <th class="">
+                <th>
                     Identificación
                 </th>
-                <th class="">
+                <th>
                     Nuevo historial
                 </th>
-                <th class="">
+                <th >
                     Ver todo
                 </th>
             </tr>
-            <?php
-            function tablaPersonas () {
+                    ');
                     require 'Conexion.php';
                         $consulta = 'SELECT * FROM persona';
                         $mysqli->set_charset("utf8");
@@ -88,17 +90,46 @@
                         }
                         $mysqli->set_charset("utf8");
                         $resultado = $mysqli->query($consulta);
-                    while ($fila = $resultado->fetch_assoc()) {
-                        echo  '
-                            <tr>
-                                <td>' . $fila['codigo'] . '</td>
-                                <td>' . $fila['nombre'] . '</td>
-                                <td>' . $fila['telefono'] . '</td>
-                                <td>' . $fila['identificacion'] . '</td>
-                                <td><form method="POST" action="http://127.0.0.1/esperanza/consulta/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Consulta</button></a></form></td>
-                                <td><form method="POST" action="http://127.0.0.1/esperanza/ver-todo/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Ver todo</button></a></form></td>
-                            </tr>';
-                }
+
+                        if (mysqli_num_rows($resultado)) {
+                            print('
+                    <tr>
+                <th>
+                    Código
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Teléfono
+                </th>
+                <th>
+                    Identificación
+                </th>
+                <th>
+                    Nuevo historial
+                </th>
+                <th >
+                    Ver todo
+                </th>
+            </tr>
+                    ');
+                            while ($fila = $resultado->fetch_assoc()) {
+                                echo  '
+                                    <tr>
+                                        <td>' . $fila['codigo'] . '</td>
+                                        <td>' . $fila['nombre'] . '</td>
+                                        <td>' . $fila['telefono'] . '</td>
+                                        <td>' . $fila['identificacion'] . '</td>
+                                        <td><form method="POST" action="http://127.0.0.1/esperanza/consulta/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Consulta</button></a></form></td>
+                                        <td><form method="POST" action="http://127.0.0.1/esperanza/ver-todo/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Ver todo</button></a></form></td>
+                                    </tr>';
+                        }
+                    } else {
+                        print('<b>
+                        No se han encontrado registros. 😰
+                         </b>');
+                    }
             }
             if (isset($_POST['busqueda'])) {
                 buscarPersonas();

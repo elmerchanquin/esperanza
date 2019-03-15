@@ -35,12 +35,12 @@
         <div class="cabecera">
             <div class="titulo">
                 <h1>
-                    Nuevo Historial
+                    Consulta
                 </h1>
             </div>
         </div>
         <div class="contenedor">
-            <form action="http://localhost/esperanza/nuevo-historial/" method="POST" autocomplete="off">
+            <form action="http://127.0.0.1/esperanza/consulta/" method="POST" autocomplete="off">
                 <div class="campo">
                     <input type="hidden" value="<?php print($resultado["codigo"])?>" name="id" placeholder="Nombre del paciente">
                 </div>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="Historia">
                     <label for="nombre">Nuevos datos:</label>
-                    <textarea name="nuevo" id="" cols="30" rows="10" placeholder="Datos que el medico puede comprobar" required></textarea>
+                    <textarea name="nuevos" id="" cols="30" rows="10" placeholder="Datos que el medico puede comprobar" required></textarea>
                 </div>
                 <div class="Historia">
                     <label for="nombre">Diagnostico:</label>
@@ -82,33 +82,35 @@
 </html>
 <?php
                         require 'Conexion.php';
-                if (isset($_POST['motivo'])) {
+                if (isset($_POST['objetivos'])) {
                         $id_persona = $_POST['id'];
-                        $motivo = $_POST['motivo'];
-                        $historia = $_POST['historia'];
-                        $peso = $_POST['peso'];
-                        $estatura = $_POST['estatura'];
-                        $temperatura = $_POST['temperatura'];
+                        $objetivos = $_POST['objetivos'];
+                        $subjetivos = $_POST['subjetivos'];
+                        $nuevos = $_POST['nuevos'];
+                        $diagnostico = $_POST['diagnostico'];
+                        $tratamiento = $_POST['tratamiento'];
                         $fecha = $_POST['fecha'];
-                        $cardiaca = $_POST['cardiaca'];
-                        $respiratoria = $_POST['respiratoria'];
-                        $oxigeno = $_POST['oxigeno'];
-                        $arterial = $_POST['arterial'];
 
 
 
 
-                        $sql = "INSERT INTO `historial` (`id`, `id_persona`, `fecha`, `motivo`, `historia`, `peso`,
-                        `estatura`, `frecuencia_cardiaca`, `frecuencia_respiratoria`, `temperatura`, `presion_arterial`, `saturacion_oxigeno`)
-                        VALUES (NULL, '$id_persona', '$fecha', '$motivo', '$historia', '$peso',
-                        '$estatura', '$cardiaca', '$respiratoria', '$temperatura', '$arterial', '$oxigeno');";
+                        $sql = "INSERT INTO `consultas` (`id`, `fecha`, `id_persona`, `objetivos`, `subjetivos`, `nuevos_datos`,
+                        `diagnostico`, `tratamiento`)
+                        VALUES (NULL, '$fecha', '$id_persona', '$objetivos', '$subjetivos', '$nuevos',
+                        '$diagnostico', '$tratamiento');";
 
 
                         $mysqli->set_charset("utf8");
                         if (mysqli_query($mysqli, $sql)) {
-                            print('<script type="text/javascript">
-                            document.location = "http://127.0.0.1/esperanza/examen-fisico/";
-                        </script> ');
+                            print('<script>
+                            window.onload=function(){
+                                        // Una vez cargada la página, el formulario se enviara automáticamente.
+                                document.forms["miformulario"].submit();
+                            }
+                            </script>
+                        <form name="miformulario" action="http://127.0.0.1/esperanza/ver-todo/" method="POST">
+                            <input type="hidden" value="'. $_POST["id"] .'" name="codigo">
+                        </form>');
                         } else {
                             echo "Error: " . $sql . "<br>" . mysqli_error($mysqli);
                         }

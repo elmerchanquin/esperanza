@@ -30,28 +30,16 @@
                     <input type="text" placeholder="Télefono" name="telefono"  required>
                 </div>
                 <div class="campo">
-                    <input type="text" placeholder="País de nacimiento" required name='pais'>
+                    <input type="text" placeholder="País" required name='pais'>
                 </div>
                 <div class="campo">
-                    <input type="text" placeholder="Departamento de nacimiento" name="departamento" required>
+                    <input type="text" placeholder="Departamento" name="departamento" required>
                 </div>
                 <div class="campo">
-                    <input type="text" placeholder="Ciudad de nacimiento" name="ciudad" required>
+                    <input type="text" placeholder="Ciudad" name="ciudad" required>
                 </div>
                 <div class="campo">
-                    <input type="text" placeholder="Dirección de residencia" name="direccion" required>
-                </div>
-                <div class="campo">
-                    <input type="text" placeholder="País de residencia (Dejar en blanco si es el de nacimiento)"
-                    name='pais2'>
-                </div>
-                <div class="campo">
-                    <input type="text" placeholder="Departamento de residencia (Dejar en blanco si es el de nacimiento)"
-                    name="departamento2">
-                </div>
-                <div class="campo">
-                    <input type="text" placeholder="Ciudad de residencia (Dejar en blanco si es el de nacimiento)"
-                    name="ciudad2">
+                    <input type="text" placeholder="Dirección" name="direccion" required>
                 </div>
                 <div class="campo">
                     <label for="genero">Genero</label>
@@ -70,6 +58,7 @@
                     <input type="text" name="ocupacion" placeholder="Ocupación" required>
                 </div>
                 <div class="campo">
+                    <label for="naciemiento">Fecha de nacimiento:</label>
                     <input type="date" placeholder="Fecha de Nacimiento" name="nacimiento" max="<?php echo date('d')."/".date('m')."/".date('Y');?>" required>
                 </div>
                 <div class="campo">
