@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="contenedor">
-            <form action="http://localhost/esperanza/nuevo-historial/" method="POST" autocomplete="off">
+            <form action="http://127.0.0.1/esperanza/nuevo-historial/" method="POST" autocomplete="off">
                 <div class="campo">
                     <input type="hidden" value="<?php print($resultado["codigo"])?>" name="id" placeholder="Nombre del paciente">
                 </div>
@@ -65,7 +65,7 @@
                     <input type="number" placeholder="Peso del paciente en libras" step="00.01" name="peso" required>
                 </div>
                 <div class="campo">
-                    <label for="motivo">Estado:</label>
+                    <label for="motivo">Estatura:</label>
                     <input type="number" placeholder="Estatura del paciente en centimetros" step="00.01" name="estatura" required>
                 </div>
                 <div class="campo">
