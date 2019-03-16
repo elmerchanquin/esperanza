@@ -262,7 +262,7 @@
                                 Aún no se ha creado un historial, crealo ahora.
                             </b>
                         <div>
-                            <form method="POST" action="http://127.0.0.1/esperanza/nuevo-historial/"><input type="hidden" name="codigo" value="<?php print($resultado["codigo"]) ?>"><button type="submit">NUEVO HISTORIAL</button></a></form>
+                            <form method="POST" action="<?php echo "http://$server/esperanza/nuevo-historial/"; ?>"><input type="hidden" name="codigo" value="<?php print($resultado["codigo"]) ?>"><button type="submit">NUEVO HISTORIAL</button></a></form>
                         </div>
                 </div>
                 <div class="contenedor_consultas">
@@ -273,7 +273,7 @@
                        Aún no se ha creado ninguna consulta, crea la primera ahora.
                         </b>
                     <div>
-                            <form method="POST" action="http://127.0.0.1/esperanza/consulta/"><input type="hidden" name="codigo" value="<?php print($resultado["codigo"]) ?>"><button type="submit">NUEVA CONSULTA</button></a></form>
+                            <form method="POST" action="<?php echo "http://$server/esperanza/consulta/"; ?>"><input type="hidden" name="codigo" value="<?php print($resultado["codigo"]) ?>"><button type="submit">NUEVA CONSULTA</button></a></form>
                     </div>
             </div>
         </div>

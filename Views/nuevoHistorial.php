@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="contenedor">
-            <form action="http://127.0.0.1/esperanza/nuevo-historial/" method="POST" autocomplete="off">
+            <form action="<?php echo "http://$server/esperanza/nuevo-historial/"; ?>" method="POST" autocomplete="off">
                 <div class="campo">
                     <input type="hidden" value="<?php print($resultado["codigo"])?>" name="id" placeholder="Nombre del paciente">
                 </div>
@@ -122,7 +122,7 @@
                         $mysqli->set_charset("utf8");
                         if (mysqli_query($mysqli, $sql)) {
                             print('<script type="text/javascript">
-                            document.location = "http://127.0.0.1/esperanza/examen-fisico/";
+                            document.location = "http://' . $server . '/esperanza/examen-fisico/";
                         </script> ');
                         } else {
                             echo "Error: " . $sql . "<br>" . mysqli_error($mysqli);

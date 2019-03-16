@@ -18,7 +18,7 @@
             </h1>
         </div>
         <div class="busqueda">
-            <form action="http://127.0.0.1/esperanza/" method="POST">
+            <form action="<?php echo "http://$server/esperanza/"; ?>" method="POST">
                 <input type="search" name="busqueda" autocomplete="off" placeholder="Buscar..." value="<?php if(isset($_POST['busqueda'])) { print($_POST['busqueda']);}?>" required>
                     <select name="metodo" id="">
                         <?php if($_POST['metodo'] == 'codigo') {
@@ -39,6 +39,7 @@
         <table>
             <?php
             function tablaPersonas () {
+                $server = $_SERVER['HTTP_HOST'];
                     print('
                     <tr>
                 <th>
@@ -72,13 +73,14 @@
                                 <td>' . $fila['nombre'] . '</td>
                                 <td>' . $fila['telefono'] . '</td>
                                 <td>' . $fila['identificacion'] . '</td>
-                                <td><form method="POST" action="http://127.0.0.1/esperanza/consulta/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Consulta</button></a></form></td>
-                                <td><form method="POST" action="http://127.0.0.1/esperanza/ver-todo/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Ver todo</button></a></form></td>
+                                <td><form method="POST" action="http://' . $server . '/esperanza/consulta/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Consulta</button></a></form></td>
+                                <td><form method="POST" action="http://' . $server . '/esperanza/ver-todo/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Ver todo</button></a></form></td>
                             </tr>';
                     }
                 }
 
             function buscarPersonas () {
+                $server = $_SERVER['HTTP_HOST'];
                 require 'Conexion.php';
                 $consulta = $_POST['busqueda'];
                 $metodo = $_POST['metodo'];
@@ -121,8 +123,8 @@
                                         <td>' . $fila['nombre'] . '</td>
                                         <td>' . $fila['telefono'] . '</td>
                                         <td>' . $fila['identificacion'] . '</td>
-                                        <td><form method="POST" action="http://127.0.0.1/esperanza/consulta/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Consulta</button></a></form></td>
-                                        <td><form method="POST" action="http://127.0.0.1/esperanza/ver-todo/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Ver todo</button></a></form></td>
+                                        <td><form method="POST" action="http://' . $server . '/esperanza/consulta/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Consulta</button></a></form></td>
+                                        <td><form method="POST" action="http://' . $server . '/esperanza/ver-todo/"><input type="hidden" name="codigo" value="' . $fila['codigo'] . '"><button type="submit">Ver todo</button></a></form></td>
                                     </tr>';
                         }
                     } else {

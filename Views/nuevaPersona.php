@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="contenedor">
-            <form action="http://127.0.0.1/esperanza/nueva-persona/" autocomplete="off" method='POST'>
+            <form action="<?php echo "http://$server/esperanza/nueva-persona/"; ?>" autocomplete="off" method='POST'>
             <div class="campo">
                     <input type="text" placeholder="Identificacción del país" name="identificacion" required>
                 </div>
@@ -124,7 +124,7 @@
                         $mysqli->set_charset("utf8");
                         if (mysqli_query($mysqli, $sql)) {
                             print('<script type="text/javascript">
-                            document.location = "http://127.0.0.1/esperanza/registrado/";
+                            document.location = "http://' . $server . '/esperanza/registrado/";
                         </script> ');
                         } else {
                             echo "Error: " . $sql . "<br>" . mysqli_error($mysqli);

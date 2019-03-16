@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="contenedor">
-            <form action="http://127.0.0.1/esperanza/consulta/" method="POST" autocomplete="off">
+            <form action="<?php echo "http://$server/esperanza/consulta/"; ?>" method="POST" autocomplete="off">
                 <div class="campo">
                     <input type="hidden" value="<?php print($resultado["codigo"])?>" name="id" placeholder="Nombre del paciente">
                 </div>
@@ -108,7 +108,7 @@
                                 document.forms["miformulario"].submit();
                             }
                             </script>
-                        <form name="miformulario" action="http://127.0.0.1/esperanza/ver-todo/" method="POST">
+                        <form name="miformulario" action="http://'.$server.'/esperanza/ver-todo/" method="POST">
                             <input type="hidden" value="'. $_POST["id"] .'" name="codigo">
                         </form>');
                         } else {

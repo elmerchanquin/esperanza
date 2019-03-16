@@ -292,7 +292,7 @@
                                 Aún no se ha creado un historial, crealo ahora.
                                 </b>
                                 <div>
-                                <form method="POST" action="http://127.0.0.1/esperanza/nuevo-historial/"><input type="hidden" name="codigo" value="'.$_POST['codigo'].'"><button type="submit">NUEVO HISTORIAL</button></a></form>
+                                <form method="POST" action="http://' . $server . '/esperanza/nuevo-historial/"><input type="hidden" name="codigo" value="'.$_POST['codigo'].'"><button type="submit">NUEVO HISTORIAL</button></a></form>
                                  </div>');
                         }
                         ?>
@@ -324,7 +324,7 @@
                    }
                    ?>
                     <div>
-                            <form method="POST" action="http://127.0.0.1/esperanza/consulta/"><input type="hidden" name="codigo" value="<?php print($_POST['codigo']) ?>"><button type="submit">NUEVA CONSULTA</button></a></form>
+                            <form method="POST" action="<?php echo "http://$server/esperanza/consulta/"; ?>"><input type="hidden" name="codigo" value="<?php print($_POST['codigo']) ?>"><button type="submit">NUEVA CONSULTA</button></a></form>
                     </div>
             </div>
         </div>

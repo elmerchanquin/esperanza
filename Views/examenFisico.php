@@ -37,7 +37,7 @@
 
         <div class="contenedor">
 
-            <form action="http://localhost/esperanza/historial/" method="POST" autocomplete="off">
+            <form action="<?php echo "http://$server/esperanza/examen-fisico/"; ?>" method="POST" autocomplete="off">
 
                 <div class="contenedor-examen">
                 <input type="text" value="<?php print($resultado["id"])?>" name="cod_historial" >
@@ -101,7 +101,7 @@
                         $mysqli->set_charset("utf8");
                         if (mysqli_query($mysqli, $sql)) {
                             print('<script type="text/javascript">
-                            document.location = "http://127.0.0.1/esperanza/examen-fisico/";
+                            document.location = "http://'.$server.'/esperanza/examen-fisico/";
                         </script> ');
                         } else {
                             echo "Error: " . $sql . "<br>" . mysqli_error($mysqli);
