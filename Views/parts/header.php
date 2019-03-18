@@ -1,6 +1,6 @@
 <header>
         <div class="logo">
-                <a href="<?php 
+                <a href="<?php
                 $server = $_SERVER['HTTP_HOST'];
                 echo "http://$server/esperanza/"; ?>">
                     <img src="<?php
