@@ -1,9 +1,8 @@
 <?php
 $myurl=$_SERVER['REQUEST_URI'];
+$server = $_SERVER['HTTP_HOST'];
 
-if (preg_match("/nuevo-historia/", $myurl)) {
-        include '../Views/nuevoHistorial.php';
-} elseif ($myurl == '/esperanza/') {
+if ($myurl == '/esperanza/') {
     include '../Views/personas.php';
 } elseif ($myurl == '/esperanza/nueva-persona/') {
     include '../Views/nuevaPersona.php';
@@ -19,9 +18,14 @@ if (preg_match("/nuevo-historia/", $myurl)) {
     include '../Views/examenFisico.php';
 } elseif ($myurl == '/esperanza/registrado/') {
     include '../Views/registrado.php';
+} elseif ($myurl == '/esperanza/login/') {
+    include '../Views/login.php';
+} elseif ($myurl == '/esperanza/cerrar-sesion/') {
+    include '../Views/cerrarSesion.php';
+} elseif ($myurl == '/esperanza/cerrar-sesion/') {
+    include '../Views/cerrarSesion.php';
 } else {
-    echo 'Error 404 no se ha encontrado nada en esta ruta. ';
-    echo '<a href="http://127.0.0.1/esperanza/">Regresar</a>';
+    include '../Views/error404.php';
 }
 
 ?>

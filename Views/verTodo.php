@@ -149,9 +149,6 @@
                         <span>
                             Teléfono: <?php print($resultado["telefono"])?>
                         </span>
-                        <span>
-                            Correo: <?php print('antoniobanderas@antoniobanderas.com')?>
-                        </span>
                 </div>
                 <div class="caja_sb">
                     <p>
@@ -222,37 +219,29 @@
                             </h3>
                         </div>
                         <!-- Menú de tablas -->
-                        <div class="caja_menu active">
-                            Médicos
-                        </div>
-                        <div class="caja_menu">
-                            Traumaticos
-                        </div>
-                        <div class="caja_menu">
-                            Quirurgicos
-                        </div>
-                        <div class="caja_menu">
-                            Alergicos
-                        </div>
-                        <div class="caja_menu">
-                            Gineco-obstetricos
-                        </div>
+                        <ul class="caja_menu_tablas">
+                            <li id="mt_1" onclick="cambiarMenu(1)" class="caja_menu active">Médicos</li>
+                            <li id="mt_2" onclick="cambiarMenu(2)" class="caja_menu">Traumaticos</li>
+                            <li id="mt_3" onclick="cambiarMenu(3)" class="caja_menu">Quirurgicos</li>
+                            <li id="mt_4" onclick="cambiarMenu(4)" class="caja_menu">Alergicos</li>
+                            <li id="mt_5" onclick="cambiarMenu(5)" class="caja_menu">Gineco-obstetricos</li>
+                        </ul>
                     </div>
                     <div class="caja_tablas">
                         <!-- Tablas -->
-                        <div class="caja_blanca activate">
+                        <div id="ct_1" class="caja_blanca activate">
                             <?php print($resultado["antecedentes_medicos"])?>
                         </div>
-                        <div class="caja_blanca deactivate">
+                        <div id="ct_2" class="caja_blanca deactivate">
                             <?php print($resultado["antecedentes_traumaticos"])?>
                         </div>
-                        <div class="caja_blanca deactivate">
+                        <div id="ct_3" class="caja_blanca deactivate">
                             <?php print($resultado["antecedentes_quirugico"])?>
                         </div>
-                        <div class="caja_blanca deactivate">
+                        <div id="ct_4" class="caja_blanca deactivate">
                             <?php print($resultado["antecedentes_alergicos"])?>
                         </div>
-                        <div class="caja_blanca deactivate">
+                        <div id="ct_5" class="caja_blanca deactivate">
                             <?php print($resultado["antecedentes_gineco_obstetricos"])?>
                         </div>
                     </div>

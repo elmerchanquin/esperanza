@@ -74,7 +74,7 @@
                 </div>
                 <!-- PROXIMA CITA -->
                 <div class="campo">
-                    <button type="submit" class="form-button">Continuar</button>
+                    <button type="submit" class="form-button">Guardar</button>
                 </div>
             </form>
         </div>

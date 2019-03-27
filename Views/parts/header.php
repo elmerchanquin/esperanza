@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    if (isset($_SESSION['usuario'])) {
+    } else {
+        $server = $_SERVER['HTTP_HOST'];
+    echo "
+            <script type='text/javascript'>
+            window.location='http://$server/esperanza/login/'
+            </script>
+            ";
+    }
+?>
 <header>
         <div class="logo">
                 <a href="<?php

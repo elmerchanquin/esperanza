@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    if (isset($_SESSION['usuario'])) {
+    } else {
+        $server = $_SERVER['HTTP_HOST'];
+    echo "
+            <script type='text/javascript'>
+            window.location='http://$server/esperanza/login/'
+            </script>
+            ";
+    }
+?>
 <!DOCTYPE html>
 <html lang>
 <head>
@@ -5,73 +17,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Clínica Esperanza</title>
     <link rel="stylesheet" type="text/css" media="screen" href="../estilos.css"/>
-    <style type="text/css">
-
-      #canvas_1{
-      background: url('../assets/img/anatomia.jpg');
-      background-repeat: none;
-      background-size: 100%;
-      position: relative;
-      }
-
+    <style>
+    html {
+        height: 100%;
+    }
+    body {
+        height: 100%;
+    }
+    .contenedor_examen {
+        height: 100%;
+    }
     </style>
-    <script src="../main.js"></script>
     <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
 </head>
-<?php
-    include 'Conexion.php';
+    <?php
+    /* include 'Conexion.php';
     if (isset($_POST['codigo'])){
         $codigo = $_POST['codigo'];
     }
-    $consulta = "SELECT id FROM historial ORDER BY id DESC LIMIT 1;";
+    $codigo = 1;
+    $consulta = "SELECT * FROM persona WHERE='".$codigo."'";
     $mysqli->set_charset("utf8");
     $query = mysqli_query($mysqli, $consulta);
-    $resultado = mysqli_fetch_array($query);
+    $resultado = mysqli_fetch_array($query); */
     ?>
+    <script>
+    var code = <?php $codigo = 1; print($codigo); ?>
+    </script>
 <body>
-
-        <canvas id="canvas_1" width="700" height="600   "></canvas>
-
-        <div class="contenedor">
-
-            <form action="<?php echo "http://$server/esperanza/examen-fisico/"; ?>" method="POST" autocomplete="off">
-
-                <div class="contenedor-examen">
-                <input type="text" value="<?php print($resultado["id"])?>" name="cod_historial" >
-                <div class="contenedor-comentarios">
-                    <?php
-                $a = 0;
-                    while ($a <= 0) {
-                        print('
-                        <div class="contenedor-comentario">
-                            <form action="">
-                                <input type="text" placeholder="Cordenadas" id="cordenadas" readonly>
-                                <input type="file">
-                            </form>
-                        </div>
-                        <div class="contenedor-comentario">
-                        <h3>Comentario</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <div class="contenedor-comentario-fotos">
-                            <img src="../assets/img/anatomia.jpg" alt="hola">
-                            <img src="../assets/img/anatomia.jpg" alt="hola">
-                            <img src="../assets/img/anatomia.jpg" alt="hola">
-                        </div>
-                        </div>
-                        ');
-                        $a++;
-                    }
-                ?>
-                </div>
-            </div>
-                <div class="campo">
-                    <button name="" class="form-button">Guardar</button>
-                </div>
-            </form>
+    <div class="contenedor_examen">
+        <div class="contenedor_canvas" id="c_c">
+            <canvas id="canvas_1" width="712" height="634"></canvas>
         </div>
+         <div class="contenedor_izquierdo"  id="examen">
+         <h2>
+            Comentarios <!-- <?php print($resultado["nombre"])?> -->
+         </h2>
+         <!-- <form action="<?php echo "http://$server/esperanza/examen-fisico/"; ?>" method="POST" autocomplete="off" class="caja" id="comentario">
+        <div class="campo">
+            <input type="hidden" value="<?php print($resultado["id"])?>" name="cod_historial">
+        </div>
+        <div class="campo">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+            <input id="cordenadas_x" type="hidden">
+            <input id="cordenadas_y" type="hidden">
+        <div class="campo">
+            <input type="file" id="files" name="files[]" multiple="true " />
+                <br />
+            <output id="list"></output>
+        </div>
+        <div>
+
+        </div>
+            <div class="campo">
+                <button name="" class="form-button">Guardar</button>
+            </div>
+        </form> -->
+         </div>
+     </div>
   </body>
 </html>
 <?php
@@ -108,8 +116,9 @@
                         }
                         mysqli_close($mysqli);
 
-                        
-                        
+
                 }
 
             ?>
+
+            <script src="../main.js"></script>
