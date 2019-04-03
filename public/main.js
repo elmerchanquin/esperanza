@@ -78,7 +78,8 @@ document.addEventListener("DOMContentLoaded", iniciar, false);
                 var canvas = document.getElementById("canvas_1");
                 canvas.addEventListener("mousedown", ObtenerCoords, false);
             }
-            function ObtenerCoords(event, id, code){
+            function ObtenerCoords(event){
+                var URLactual = window.location;
                 var x = new Number();
                 var y = new Number();
 
@@ -86,25 +87,24 @@ document.addEventListener("DOMContentLoaded", iniciar, false);
                 x = event.x;
                 y = event.y;
                 }
-
-
                 var punto = document.createElement("img")
                 punto.style.cssText='position: fixed; left:'.concat(x).concat('px; top:').concat(y).concat('px;')
                 punto.setAttribute("src", "/esperanza/assets/img/comentario_creado.png")
                 punto.setAttribute("id", "".concat(x).concat(y))
                 document.getElementById('c_c').appendChild(punto)
 
-
                 var newt = document.createElement("form")
                 newt.setAttribute("class", "caja")
-                newt.setAttribute("action", "http://$server/esperanza/examen-fisico/")
+                newt.setAttribute("action", URLactual)
                 newt.setAttribute("onmouseover", "mostarComentario(".concat(x).concat(y).concat(")"))
+                newt.setAttribute("enctype", "multipart/form-data")
+                newt.setAttribute("method", "POST")
 
                 var ca_co = document.createElement('div')
                 ca_co.setAttribute("class", "campo")
                 var codigo = document.createElement('input')
                 ca_co.appendChild(codigo)
-                codigo.setAttribute("type", "text")
+                codigo.setAttribute("type", "hidden")
                 codigo.setAttribute("value", code)
                 codigo.setAttribute("name", "id_comentario")
                 codigo.setAttribute("class", "codigo_comentario")
@@ -154,6 +154,7 @@ document.addEventListener("DOMContentLoaded", iniciar, false);
                 var button = document.createElement("button")
                 b.appendChild(button)
                 button.setAttribute("class", "form-button")
+                button.setAttribute("onclick", "ajax_post()")
                 var texto_button = document.createTextNode("Guardar")
                 button.appendChild(texto_button)
                 newt.appendChild(b)
@@ -176,4 +177,27 @@ document.addEventListener("DOMContentLoaded", iniciar, false);
                 document.getElementById(idComentario).setAttribute("src", "/esperanza/assets/img/comentario_activo.png")
                 document.getElementById(idComentario).setAttribute("class", "comentario_activo")
 
+            }
+
+            function ajax_post(){
+                var xmlhttp = new XMLHttpRequest()
+
+                var cord_x = document.getElementById('cordenada_x').value
+                var cord_y = document.getElementById('cordenada_y').value
+                var comentario = document.getElementById('comentario').value
+                var imagen = document.getElementById('imagen').value
+
+                var informacionComentario = "cordenada_x=" + cord_x + "&cordenada_y=" + cord_y +
+                "&comentario=" + comentario + "&imagen=" + imagen
+
+                xmlhttp.onreadystatechange = function() {
+                    if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                        var mensaje = xmlhttp.responseText;
+                        resultado.innerHTML = mensaje
+                    }
+                }
+
+                xmlhttp.open("POST", "guardarComentario.php", true)
+                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+                xmlhttp.send(informacionComentario)
             }

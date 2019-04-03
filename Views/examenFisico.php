@@ -28,25 +28,10 @@
         height: 100%;
     }
     </style>
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
-    </script>
+
 </head>
-    <?php
-    /* include 'Conexion.php';
-    if (isset($_POST['codigo'])){
-        $codigo = $_POST['codigo'];
-    }
-    $codigo = 1;
-    $consulta = "SELECT * FROM persona WHERE='".$codigo."'";
-    $mysqli->set_charset("utf8");
-    $query = mysqli_query($mysqli, $consulta);
-    $resultado = mysqli_fetch_array($query); */
-    ?>
     <script>
-    var code = <?php $codigo = 1; print($codigo); ?>
+    var code = <?php $codigo = 5; print($codigo); ?>
     </script>
 <body>
     <div class="contenedor_examen">
